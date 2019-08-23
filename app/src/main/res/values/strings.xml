@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">MooVie</string>
-    <string name="name_movies">Title Movie</string>
+    <string name="title_movies">Title Movie</string>
     <string name="lorem">lorem ipsum dolor sit amet</string>
-    
-    <array name="data_photo">
+
+    <array name="movie_poster">
         <item>@drawable/poster_a_star</item>
         <item>@drawable/poster_aquaman</item>
         <item>@drawable/poster_avengerinfinity</item>
@@ -24,6 +24,30 @@
         <item>@drawable/poster_thegirl</item>
         <item>@drawable/poster_themule</item>
         <item>@drawable/poster_venom</item>
+    </array>
+    
+    <array name="title_movie">
+        <item>A Star is Born</item>
+        <item>Aquaman</item>
+        <item>Avengers Infinity War</item>
+        <item>BirdBox</item>
+        <item>Bohemian Rhapsody</item>
+        <item>BumbleBee</item>
+        <item>Creed II</item>
+        <item>Once Upon A DeadPool</item>
+        <item>How To Tran Your Dragon The Hidden World</item>
+        <item>Dragon Ball Broly The Movie</item>
+        <item>Glass</item>
+        <item>Hunter Killer</item>
+        <item>Marry Poppins Returns</item>
+        <item>Mortal Engine</item>
+        <item>Preman Pensiun</item>
+        <item>Robin Hood</item>
+        <item>SpiderMan Into The Verse</item>
+        <item>The Girl In The Spider's Web</item>
+        <item>The Mule</item>
+        <item>Venom</item>
+
     </array>
 
 
