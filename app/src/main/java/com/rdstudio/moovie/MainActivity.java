@@ -11,7 +11,7 @@ public class MainActivity extends AppCompatActivity {
 
     // add dummy list data movie
     private String[] dataMovie = {"A Star Is Born", "Aquaman", "Bohemian Rhapsody", "BumbleBee", "Creed II", "DeadPool", "HTTYD",
-    "DragonBall","Glass", "Hunter Killer", "Mary Poppins", "Mortal Engines", "preman Pensiun", "Robin Hood", "Spiderman In To The Spider Verse",
+    "DragonBall","Glass", "Hunter Killer", "Mary Poppins", "Mortal Engines", "Preman Pensiun", "Robin Hood", "Spiderman In To The Spider Verse",
     "The Girl In The Spders Web", "The Mule", "Venom"};
 
     @Override
