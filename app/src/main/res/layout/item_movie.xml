@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/list_row_content"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="top"
+    android:background="@color/blue_grey_50"
+    android:orientation="horizontal"
+    android:padding="@dimen/activity_vertical_margin">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/middle_view"
+        android:gravity="start|center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_movie_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="2"
+            android:text="@string/title_movies"
+            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+            android:textColor="@color/grey_80"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_ph_movie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_medium"
+            android:text="@string/ph_movies"
+            android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+            android:textColor="@color/grey_40" />
+
+        <TextView
+            android:id="@+id/tv_movie_storyline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_medium"
+            android:layout_marginBottom="@dimen/spacing_medium"
+            android:maxLines="4"
+            android:text="@string/lorem"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="@color/grey_80" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:text="detail"
+            android:textAllCaps="false"
+            android:background="@color/grey_500" />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/middle_view"
+        android:layout_width="@dimen/spacing_large"
+        android:layout_height="0dp"
+        android:layout_toEndOf="@+id/cv_poster_movie" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_poster_movie"
+        android:layout_width="110dp"
+        android:layout_height="160dp"
+        app:cardCornerRadius="3dp"
+        app:cardElevation="5dp">
+
+        <ImageView
+            android:id="@+id/iv_poster_movie"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/poster_mortalengine" />
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>
