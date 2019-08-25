@@ -255,6 +255,7 @@
     <string name="more">More</string>
     <string name="rating">5,7</string>
     <string name="movies_genre">Sci Fi, Thriller</string>
+    <string name="title_movie_trailer">Movie Trailer</string>
 
 
 </resources>
