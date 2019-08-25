@@ -54,15 +54,8 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, movies.get(i).getTitleMovie(), Toast.LENGTH_SHORT).show();
 
                 // Parcelable intent
-                Movie dataMovie = new Movie();
-                dataMovie.setPosterMovie(movies.get(i).getPosterMovie());
-                dataMovie.setTitleMovie(movies.get(i).getTitleMovie());
-                dataMovie.setPhMovie(movies.get(i).getPhMovie());
-                dataMovie.setStorylineMovie(movies.get(i).getStorylineMovie());
-                dataMovie.setMovieRating(movies.get(i).getMovieRating());
 
                 Intent detailMovieIntent = new Intent(MainActivity.this, MovieDetailActivity.class);
-
                 startActivity(detailMovieIntent);
 
             }
