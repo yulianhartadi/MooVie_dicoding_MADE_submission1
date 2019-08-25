@@ -9,6 +9,28 @@
     android:orientation="horizontal"
     android:padding="@dimen/activity_vertical_margin">
 
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_poster_movie"
+        android:layout_width="110dp"
+        android:layout_height="160dp"
+        app:cardCornerRadius="3dp"
+        app:cardElevation="5dp">
+
+        <ImageView
+            android:id="@+id/iv_poster_movie"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/poster_bumblebee" />
+
+    </androidx.cardview.widget.CardView>
+
+    <View
+        android:id="@+id/middle_view"
+        android:layout_width="@dimen/spacing_large"
+        android:layout_height="0dp"
+        android:layout_toEndOf="@+id/cv_poster_movie" />
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -46,36 +68,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="@color/grey_80" />
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:text="detail"
-            android:textAllCaps="false"
-            android:background="@color/grey_500" />
 
     </LinearLayout>
-
-    <View
-        android:id="@+id/middle_view"
-        android:layout_width="@dimen/spacing_large"
-        android:layout_height="0dp"
-        android:layout_toEndOf="@+id/cv_poster_movie" />
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cv_poster_movie"
-        android:layout_width="110dp"
-        android:layout_height="160dp"
-        app:cardCornerRadius="3dp"
-        app:cardElevation="5dp">
-
-        <ImageView
-            android:id="@+id/iv_poster_movie"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="fitXY"
-            android:src="@drawable/poster_mortalengine" />
-
-    </androidx.cardview.widget.CardView>
 
 </RelativeLayout>
