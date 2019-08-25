@@ -19,6 +19,8 @@ public class MovieDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie_detail);
         StatusBarUtil.setTransparent(this);
+
+
         //Movie movie = getIntent().getParcelableExtra(MOVIE_DETAIL);
     }
 

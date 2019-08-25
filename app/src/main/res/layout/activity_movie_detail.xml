@@ -8,5 +8,285 @@
     android:fitsSystemWindows="true"
     tools:context=".MovieDetailActivity">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="290dp"
+        android:fitsSystemWindows="true"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="@color/colorPrimary"
+            app:expandedTitleTextAppearance="@style/TextAppearance.AppCompat.Title"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:titleEnabled="false">
+
+            <ImageView
+                android:id="@+id/image_header"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fitsSystemWindows="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/poster_mortalengine"
+                app:layout_collapseMode="parallax" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/overlay_dark_20"
+                android:fitsSystemWindows="true" />
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:contentInsetStartWithNavigation="0dp"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nested_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/spacing_m_large"
+        android:clipToPadding="false"
+        android:scrollbars="none"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_large"
+            android:orientation="vertical">
+
+            <!-- title content -->
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/spacing_medium"
+                android:text="Movie Trailer"
+                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                android:textColor="@android:color/black"
+                android:textStyle="bold" />
+
+            <!-- line -->
+            <View
+                android:layout_width="55dp"
+                android:layout_marginTop="@dimen/spacing_x_small"
+                android:layout_height="1dp"
+                android:layout_marginBottom="@dimen/spacing_m_large"
+                android:background="@color/grey_800" />
+
+            <!-- Player -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginBottom="@dimen/spacing_large">
+
+                <ImageView
+                    android:id="@+id/iv_poster_movie_trailer"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:fitsSystemWindows="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/poster_mortalengine"
+                    app:layout_collapseMode="parallax" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/bt_play"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:tint="@android:color/white"
+                    app:backgroundTint="@color/overlay_dark_40"
+                    app:elevation="1dp"
+                    app:fabSize="mini"
+                    app:rippleColor="@android:color/white"
+                    app:srcCompat="@drawable/ic_play_arrow" />
+
+                <LinearLayout
+                    android:id="@+id/lyt_progress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/overlay_dark_40"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/spacing_middle">
+
+                    <androidx.appcompat.widget.AppCompatSeekBar
+                        android:id="@+id/seek_bar"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:progress="0"
+                        android:progressDrawable="@drawable/seek_progress_white"
+                        android:thumb="@drawable/seek_thumb_primary" />
+
+                    <TextView
+                        android:id="@+id/tv_duration"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0:30"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        android:textColor="@android:color/white" />
+
+                    <View
+                        android:layout_width="@dimen/spacing_middle"
+                        android:layout_height="0dp" />
+
+                    <ImageButton
+                        android:id="@+id/bt_toggle_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:tint="@android:color/white"
+                        app:srcCompat="@drawable/ic_fullscreen" />
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+            <!-- Content -->
+
+            <TextView
+                android:id="@+id/tv_content_movie_storyline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_medium"
+                android:layout_marginBottom="@dimen/spacing_small"
+                android:text="Storyline"
+                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                android:textColor="@android:color/black"
+                android:textStyle="bold" />
+
+            <!-- line -->
+            <View
+                android:layout_width="55dp"
+                android:layout_marginTop="@dimen/spacing_x_small"
+                android:layout_height="1dp"
+                android:layout_marginBottom="@dimen/spacing_small"
+                android:background="@color/grey_800" />
+
+            <TextView
+                android:id="@+id/content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/lorem"
+                android:layout_marginTop="@dimen/spacing_small"
+                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                android:textColor="@color/grey_80" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <LinearLayout
+        android:id="@+id/thumb_poster"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="80dp"
+        android:paddingStart="@dimen/spacing_m_large"
+        android:paddingEnd="@dimen/spacing_m_large">
+
+        <!-- Poster thumbnail -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_poster_movie"
+            android:layout_width="140dp"
+            android:layout_height="200dp"
+            app:cardCornerRadius="7dp"
+            app:cardElevation="10dp"
+            app:cardMaxElevation="@dimen/spacing_large">
+
+            <ImageView
+                android:id="@+id/iv_poster_movie"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:src="@drawable/poster_mortalengine" />
+
+        </androidx.cardview.widget.CardView>
+
+        <View
+            android:id="@+id/middle_view"
+            android:layout_width="@dimen/spacing_large"
+            android:layout_height="0dp" />
+
+        <!-- Thumbnail Title & rating -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="start|center">
+
+            <TextView
+                android:id="@+id/tv_movie_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="2"
+                android:text="@string/title_movies"
+                android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                android:textColor="@color/grey_5"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif"/>
+
+            <TextView
+                android:id="@+id/tv_ph_movie"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_medium"
+                android:text="@string/ph_movies"
+                android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                android:textColor="@color/grey_10" />
+            <View
+                android:layout_width="75dp"
+                android:layout_marginTop="@dimen/spacing_middle"
+                android:layout_height="1dp"
+                android:background="@color/grey_5" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="?android:attr/actionBarSize"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="@dimen/spacing_small"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="?attr/actionBarSize"
+                    android:layout_marginStart="@dimen/spacing_x_small"
+                    android:src="@drawable/ic_sentiment_satisfied"
+                    android:tint="@color/grey_5" />
+
+                <TextView
+                    android:id="@+id/tv_movie_rating"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="@dimen/spacing_medium"
+                    android:text="@string/rating"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                    android:textColor="@color/grey_10" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
