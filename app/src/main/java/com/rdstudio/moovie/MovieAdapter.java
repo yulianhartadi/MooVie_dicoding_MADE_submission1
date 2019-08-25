@@ -55,13 +55,14 @@ public class MovieAdapter extends BaseAdapter {
     }
 
     private class ViewHolder{
-        private TextView tvTitleMovie, tvPhMovie, tvStorylineMovie;
+        private TextView tvTitleMovie, tvPhMovie, tvStorylineMovie, tvMovieRating;
         private ImageView imgPosterMovie;
 
         ViewHolder(View view){
             tvTitleMovie = view.findViewById(R.id.tv_movie_title);
             tvPhMovie = view.findViewById(R.id.tv_ph_movie);
             tvStorylineMovie = view.findViewById(R.id.tv_movie_storyline);
+            tvMovieRating = view.findViewById(R.id.tv_movie_rating);
             imgPosterMovie = view.findViewById(R.id.iv_poster_movie);
         }
 
@@ -69,6 +70,7 @@ public class MovieAdapter extends BaseAdapter {
             tvTitleMovie.setText(movie.getTitleMovie());
             tvPhMovie.setText(movie.getPhMovie());
             tvStorylineMovie.setText(movie.getStorylineMovie());
+            tvMovieRating.setText(movie.getMovieRating());
             imgPosterMovie.setImageResource(movie.getPosterMovie());
         }
     }

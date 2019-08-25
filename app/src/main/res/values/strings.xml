@@ -52,7 +52,7 @@
         <item>Hasbro</item>
         <item>MGM Pictures, Warner Bros</item>
         <item>20th Century Fox, Marvel</item>
-        <item>DreamWorks </item>
+        <item>DreamWorks</item>
         <item>Toei, Fox International</item>
         <item>Universal Pictures</item>
         <item>HK Productions</item>
@@ -178,7 +178,8 @@
             New York, in the multiverse, Miles must train to become the new protector of his city.
         </item>
         <item>In Stockholm, Sweden, vigilante hacker Lisbeth Salander is hired by computer
-            programmer Frans Balder to retrieve Firefall, a program capable of accessing the world\'s
+            programmer Frans Balder to retrieve Firefall, a program capable of accessing the
+            world\'s
             nuclear codes that he developed for the National Security Agency, as Balder believes it
             is too dangerous to exist. Lisbeth successfully retrieves Firefall from the NSA\'s
             servers, attracting the attention of agent Edwin Needham, but is unable to unlock it,
@@ -195,8 +196,10 @@
             Mexican cartel. He does well, so well, in fact, that his cargo increases exponentially,
             and Earl is assigned a handler. But he isn\'t the only one keeping tabs on Earl; the
             mysterious new drug mule has also hit the radar of hard-charging DEA agent Colin Bates.
-            And even as his money problems become a thing of the past, Earl\'s past mistakes start to
-            weigh heavily on him, and it\'s uncertain if he\'ll have time to right those wrongs before
+            And even as his money problems become a thing of the past, Earl\'s past mistakes start
+            to
+            weigh heavily on him, and it\'s uncertain if he\'ll have time to right those wrongs
+            before
             law enforcement, or the cartel\'s enforcers, catch up to him."
         </item>
         <item>After a faulty interview with the Life Foundation ruins his career, former reporter
@@ -204,7 +207,29 @@
             again, and he comes into contact with an alien symbiote and becomes Venom, a parasitic
             antihero.
         </item>
+    </array>
 
+    <array name="movie_rating">
+        <item>7,7</item>
+        <item>7,1</item>
+        <item>8,5</item>
+        <item>6,6</item>
+        <item>8,0</item>
+        <item>6,8</item>
+        <item>7,2</item>
+        <item>7,7</item>
+        <item>7,5</item>
+        <item>7,9</item>
+        <item>6,7</item>
+        <item>6,6</item>
+        <item>6,8</item>
+        <item>6,1</item>
+        <item>7,8</item>
+        <item>5,3</item>
+        <item>8,4</item>
+        <item>6,1</item>
+        <item>7,0</item>
+        <item>6,7</item>
     </array>
 
     <string name="app_name">MooVie</string>
@@ -228,6 +253,7 @@
             voice-box and damages his memory core. B-127 manages to destroy Blitzwing before
             collapsing from his wounds.</string>
     <string name="more">More</string>
+    <string name="rating">5,7</string>
 
 
 </resources>

@@ -2,6 +2,7 @@ package com.rdstudio.moovie;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.view.View;
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private String[] dataMovie;
     private String[] dataPhMovie;
     private String[] dataStorylineMovie;
+    private String[] dataMovieRating;
     private TypedArray dataPoster;
     private MovieAdapter movieAdapter;
 
@@ -50,6 +52,19 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Toast.makeText(MainActivity.this, movies.get(i).getTitleMovie(), Toast.LENGTH_SHORT).show();
+
+                // Parcelable intent
+                Movie dataMovie = new Movie();
+                dataMovie.setPosterMovie(movies.get(i).getPosterMovie());
+                dataMovie.setTitleMovie(movies.get(i).getTitleMovie());
+                dataMovie.setPhMovie(movies.get(i).getPhMovie());
+                dataMovie.setStorylineMovie(movies.get(i).getStorylineMovie());
+                dataMovie.setMovieRating(movies.get(i).getMovieRating());
+
+                Intent detailMovieIntent = new Intent(MainActivity.this, MovieDetailActivity.class);
+
+                startActivity(detailMovieIntent);
+
             }
         });
 
@@ -64,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
             movie.setTitleMovie(dataMovie[i]);
             movie.setPhMovie(dataPhMovie[i]);
             movie.setStorylineMovie(dataStorylineMovie[i]);
+            movie.setMovieRating(dataMovieRating[i]);
             movies.add(movie);
         }
         movieAdapter.setMovies(movies);
@@ -74,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
         dataMovie = getResources().getStringArray(R.array.movie_title);
         dataPhMovie = getResources().getStringArray(R.array.movie_ph);
         dataStorylineMovie = getResources().getStringArray(R.array.movie_storyline);
+        dataMovieRating = getResources().getStringArray(R.array.movie_rating);
         dataPoster = getResources().obtainTypedArray(R.array.movie_poster);
     }
 }
