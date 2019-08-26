@@ -20,6 +20,7 @@
         <item>@drawable/poster_thegirl</item>
         <item>@drawable/poster_themule</item>
         <item>@drawable/poster_venom</item>
+        <item>sample item</item>
     </array>
     <array name="movie_title">
         <item>A Star is Born</item>
