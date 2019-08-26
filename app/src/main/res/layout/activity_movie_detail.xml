@@ -11,7 +11,7 @@
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar_layout"
         android:layout_width="match_parent"
-        android:layout_height="350dp"
+        android:layout_height="300dp"
         android:fitsSystemWindows="true"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
@@ -37,7 +37,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/overlay_dark_20"
+                android:background="@color/overlay_dark_50"
                 android:fitsSystemWindows="true" />
 
             <androidx.appcompat.widget.Toolbar
@@ -57,7 +57,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="@dimen/spacing_m_large"
-        android:layout_marginTop="-210dp"
+        android:layout_marginTop="-215dp"
         android:clipToPadding="false"
         android:scrollbars="none"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">

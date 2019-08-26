@@ -83,16 +83,12 @@ public class MovieDetailActivity extends AppCompatActivity {
         tvThumbMovieRating.setText(mMovie.getMovieRating());
 
 
-
-
     }
 
     private void initToolbar() {
         Toolbar toolbar = findViewById(R.id.toolbar);
-        toolbar.setNavigationIcon(R.drawable.ic_arrow_back);
         setSupportActionBar(toolbar);
-        Objects.requireNonNull(getSupportActionBar()).setTitle("");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
     }
 
 }
