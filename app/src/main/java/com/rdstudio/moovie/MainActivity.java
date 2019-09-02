@@ -1,23 +1,19 @@
 package com.rdstudio.moovie;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
 import android.content.res.TypedArray;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
-import android.widget.Toast;
+
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
+import com.rdstudio.moovie.utils.Tools;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
-    // add dummy list data movie
-    /*private String[] dataMovie = {"A Star Is Born", "Aquaman", "Bohemian Rhapsody", "BumbleBee", "Creed II", "DeadPool", "HTTYD",
-    "DragonBall","Glass", "Hunter Killer", "Mary Poppins", "Mortal Engines", "Preman Pensiun", "Robin Hood", "Spiderman In To The Spider Verse",
-    "The Girl In The Spders Web", "The Mule", "Venom"};*/
 
     private String[] dataMovie;
     private String[] dataPhMovie;
@@ -33,40 +29,26 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Add dummy main view
-        /*ListView listView = findViewById(R.id.lv_list);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1, android.R.id.text1, dataMovie);
-        listView.setAdapter(adapter);*/
+        initToolbar();
+
 
         movieAdapter = new MovieAdapter(this);
-        /*ListView listView = findViewById(R.id.lv_list);
-        listView.setAdapter(movieAdapter);
-        */
+
         prepareMovies();
         addItem();
 
-        /*listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(MainActivity.this, movies.get(i).getTitleMovie(), Toast.LENGTH_SHORT).show();
-
-                // Parcelable intent
-                Movie mMovies = new Movie();
-                mMovies.setPosterMovie(movies.get(i).getPosterMovie());
-                mMovies.setTitleMovie(movies.get(i).getTitleMovie());
-                mMovies.setPhMovie(movies.get(i).getPhMovie());
-                mMovies.setStorylineMovie(movies.get(i).getStorylineMovie());
-                mMovies.setMovieRating(movies.get(i).getMovieRating());
-
-                Intent detailMovieIntent = new Intent(MainActivity.this, MovieDetailActivity.class);
-                detailMovieIntent.putExtra(MovieDetailActivity.MOVIE_DETAIL, mMovies);
-                startActivity(detailMovieIntent);
-
-            }
-        });
-*/
     }
+
+    private void initToolbar(){
+        Toolbar toolbar =findViewById(R.id.main_toolbar);
+        toolbar.setNavigationIcon(R.drawable.ic_menu);
+        setSupportActionBar(toolbar);
+        Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.app_name);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Tools.setSystemBarColor(this);
+    }
+
+
 
     private void addItem() {
         movies = new ArrayList<>();
@@ -84,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //prepare stored movie data
-    private void prepareMovies(){
+    private void prepareMovies() {
         dataMovie = getResources().getStringArray(R.array.movie_title);
         dataPhMovie = getResources().getStringArray(R.array.movie_ph);
         dataStorylineMovie = getResources().getStringArray(R.array.movie_storyline);
