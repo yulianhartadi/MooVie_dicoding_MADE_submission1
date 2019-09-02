@@ -3,10 +3,11 @@ package com.rdstudio.moovie;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.viewpager.widget.ViewPager;
 
+import com.google.android.material.tabs.TabLayout;
 import com.rdstudio.moovie.utils.Tools;
 
 import java.util.ArrayList;
@@ -14,13 +15,16 @@ import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
+    private ViewPager viewPager;
+    private MovieAdapter movieAdapter;
+    private TabLayout tabLayout;
 
     private String[] dataMovie;
     private String[] dataPhMovie;
     private String[] dataStorylineMovie;
     private String[] dataMovieRating;
     private TypedArray dataPoster;
-    private MovieAdapter movieAdapter;
+
 
     private ArrayList<Movie> movies;
 
@@ -30,17 +34,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         initToolbar();
-
-
         movieAdapter = new MovieAdapter(this);
-
-        prepareMovies();
-        addItem();
+        initContent();
 
     }
 
-    private void initToolbar(){
-        Toolbar toolbar =findViewById(R.id.main_toolbar);
+    private void initToolbar() {
+        Toolbar toolbar = findViewById(R.id.main_toolbar);
         toolbar.setNavigationIcon(R.drawable.ic_menu);
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.app_name);
@@ -48,6 +48,18 @@ public class MainActivity extends AppCompatActivity {
         Tools.setSystemBarColor(this);
     }
 
+    private void initContent(){
+        viewPager = findViewById(R.id.main_view_pager);
+        tabLayout = findViewById(R.id.main_tab_layout);
+        setupViewPager();
+
+
+    }
+
+    // add each view with fragment
+    private void setupViewPager(){
+
+    }
 
 
     private void addItem() {
