@@ -40,13 +40,13 @@ public class MainActivity extends AppCompatActivity {
         listView.setAdapter(adapter);*/
 
         movieAdapter = new MovieAdapter(this);
-        ListView listView = findViewById(R.id.lv_list);
+        /*ListView listView = findViewById(R.id.lv_list);
         listView.setAdapter(movieAdapter);
-
+        */
         prepareMovies();
         addItem();
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        /*listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Toast.makeText(MainActivity.this, movies.get(i).getTitleMovie(), Toast.LENGTH_SHORT).show();
@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
+*/
     }
 
     private void addItem() {
