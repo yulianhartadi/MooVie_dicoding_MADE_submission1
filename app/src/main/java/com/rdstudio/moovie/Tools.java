@@ -1,4 +1,4 @@
-package com.rdstudio.moovie.utils;
+package com.rdstudio.moovie;
 
 import android.app.Activity;
 import android.os.Build;
@@ -7,7 +7,6 @@ import android.view.WindowManager;
 
 import androidx.annotation.ColorRes;
 
-import com.rdstudio.moovie.R;
 
 public class Tools {
 

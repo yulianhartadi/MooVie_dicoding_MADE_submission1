@@ -1,16 +1,23 @@
 package com.rdstudio.moovie;
 
 import android.content.res.TypedArray;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
-import com.rdstudio.moovie.utils.Tools;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
@@ -18,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private ViewPager viewPager;
     private MovieAdapter movieAdapter;
     private TabLayout tabLayout;
+    private SectionsPagerAdapter viewPagerAdapater;
 
     private String[] dataMovie;
     private String[] dataPhMovie;
@@ -48,19 +56,79 @@ public class MainActivity extends AppCompatActivity {
         Tools.setSystemBarColor(this);
     }
 
-    private void initContent(){
+    private void initContent() {
         viewPager = findViewById(R.id.main_view_pager);
         tabLayout = findViewById(R.id.main_tab_layout);
-        setupViewPager();
+        setupViewPager(viewPager);
 
+        tabLayout.setupWithViewPager(viewPager);
 
+        tabLayout.getTabAt(0).setIcon(R.drawable.ic_local_movies);
+        tabLayout.getTabAt(1).setIcon(R.drawable.ic_live_tv);
+
+        //Set icon color pre-selected
+        Objects.requireNonNull(tabLayout.getTabAt(0).getIcon()).setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_IN);
+        Objects.requireNonNull(tabLayout.getTabAt(1)).getIcon().setColorFilter(getResources().getColor(R.color.grey_20), PorterDuff.Mode.SRC_IN);
+
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                tab.getIcon().setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_IN);
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+                tab.getIcon().setColorFilter(getResources().getColor(R.color.grey_20), PorterDuff.Mode.SRC_IN);
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
     }
 
-    // add each view with fragment
-    private void setupViewPager(){
 
+    // add fragment for each view
+    private void setupViewPager(ViewPager viewPager) {
+
+
+        viewPager.setAdapter(viewPagerAdapater);
     }
 
+    // create adapter for each section page
+    private class SectionsPagerAdapter extends FragmentPagerAdapter {
+
+        private final List<Fragment> mFragmentList = new ArrayList<>();
+        private final List<String> mFragmentTitleList = new ArrayList<>();
+
+        public SectionsPagerAdapter(@NonNull FragmentManager manager, int behavior) {
+            super(manager, behavior);
+        }
+
+
+        @NonNull
+        @Override
+        public Fragment getItem(int position) {
+            return mFragmentList.get(position);
+        }
+
+        @Override
+        public int getCount() {
+            return mFragmentList.size();
+        }
+
+        public void addFragment(Fragment fragment, String title) {
+            mFragmentList.add(fragment);
+            mFragmentTitleList.add(title);
+        }
+
+        @Nullable
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return mFragmentTitleList.get(position);
+        }
+    }
 
     private void addItem() {
         movies = new ArrayList<>();
