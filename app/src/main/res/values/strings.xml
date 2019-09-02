@@ -260,6 +260,11 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="new_releases">New Releases</string>
+    <string name="recommended">Recommended</string>
+    <string name="top_rated">Top Rated</string>
+    <string name="search">Search</string>
+    <string name="settings">Settings</string>
 
 
 </resources>

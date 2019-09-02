@@ -27,4 +27,6 @@
     <dimen name="spacing_xxx_large">55dp</dimen>
     <dimen name="appbar_padding_top">8dp</dimen>
 
+    <dimen name="abc_text_size_title_moovie">20sp</dimen>
+
 </resources>

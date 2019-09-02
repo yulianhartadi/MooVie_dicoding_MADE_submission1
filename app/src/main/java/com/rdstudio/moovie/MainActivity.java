@@ -4,6 +4,7 @@ import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
+import android.view.Menu;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -50,9 +51,8 @@ public class MainActivity extends AppCompatActivity {
     private void initToolbar() {
         Toolbar toolbar = findViewById(R.id.main_toolbar);
         toolbar.setNavigationIcon(R.drawable.ic_menu);
-        setSupportActionBar(toolbar);
-        Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.app_name);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setTitle(R.string.app_name);
+
         Tools.setSystemBarColor(this);
     }
 
@@ -91,7 +91,9 @@ public class MainActivity extends AppCompatActivity {
 
     // add fragment for each view
     private void setupViewPager(ViewPager viewPager) {
-
+        viewPagerAdapater = new SectionsPagerAdapter(getSupportFragmentManager());
+        viewPagerAdapater.addFragment(TabsFragment.newInstance(), "MOVIES");
+        viewPagerAdapater.addFragment(TabsFragment.newInstance(), "TV SHOW");
 
         viewPager.setAdapter(viewPagerAdapater);
     }
@@ -102,8 +104,8 @@ public class MainActivity extends AppCompatActivity {
         private final List<Fragment> mFragmentList = new ArrayList<>();
         private final List<String> mFragmentTitleList = new ArrayList<>();
 
-        public SectionsPagerAdapter(@NonNull FragmentManager manager, int behavior) {
-            super(manager, behavior);
+        public SectionsPagerAdapter(@NonNull FragmentManager manager) {
+            super(manager);
         }
 
 
@@ -128,6 +130,13 @@ public class MainActivity extends AppCompatActivity {
         public CharSequence getPageTitle(int position) {
             return mFragmentTitleList.get(position);
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        //Tools.changeMenuIconColor(menu, getResources().getColor(R.color.grey_10));
+        return true;
     }
 
     private void addItem() {

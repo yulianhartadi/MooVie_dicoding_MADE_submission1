@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import androidx.fragment.app.Fragment;
 
@@ -17,11 +18,8 @@ public class TabsFragment extends Fragment {
 
 
     // TODO: Rename and change types and number of parameters
-    public static TabsFragment newInstance(String param1, String param2) {
+    public static TabsFragment newInstance() {
         TabsFragment fragment = new TabsFragment();
-        Bundle args = new Bundle();
-
-        fragment.setArguments(args);
         return fragment;
     }
 
@@ -29,7 +27,19 @@ public class TabsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_tabs, container, false);
+        View root = inflater.inflate(R.layout.fragment_tabs, container, false);
+        Tools.displayImageOriginal(getActivity(), (ImageView) root.findViewById(R.id.img_new_releases_1), R.drawable.poster_a_star);
+        Tools.displayImageOriginal(getActivity(), (ImageView) root.findViewById(R.id.img_new_releases_2), R.drawable.poster_aquaman);
+        Tools.displayImageOriginal(getActivity(), (ImageView) root.findViewById(R.id.img_recommended_1), R.drawable.poster_avengerinfinity);
+        Tools.displayImageOriginal(getActivity(), (ImageView) root.findViewById(R.id.img_recommended_2), R.drawable.poster_birdbox);
+        Tools.displayImageOriginal(getActivity(), (ImageView) root.findViewById(R.id.img_recommended_3), R.drawable.poster_bohemian);
+        Tools.displayImageOriginal(getActivity(), (ImageView) root.findViewById(R.id.img_top_rated_1), R.drawable.poster_bumblebee);
+        Tools.displayImageOriginal(getActivity(), (ImageView) root.findViewById(R.id.img_top_rated_2), R.drawable.poster_dragon);
+
+        return root;
+
+
+
     }
 
 
