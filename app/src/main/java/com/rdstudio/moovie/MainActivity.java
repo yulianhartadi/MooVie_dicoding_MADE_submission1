@@ -19,6 +19,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
@@ -33,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
     private MovieAdapter movieAdapter;
     private TabLayout tabLayout;
     private SectionsPagerAdapter viewPagerAdapater;
+
+    private RecyclerView rvMainMovie;
 
     private String[] dataMovie;
     private String[] dataPhMovie;
@@ -49,7 +52,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         initToolbar();
-        movieAdapter = new MovieAdapter(this);
         initContent();
 
     }
@@ -79,7 +81,6 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
         getMenuInflater().inflate(R.menu.main_menu, menu);
         Tools.changeMenuIconColor(menu, getResources().getColor(R.color.grey_10));
 
@@ -153,6 +154,12 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        // RecyclerView
+        rvMainMovie = findViewById(R.id.rv_main_movie);
+        rvMainMovie.setHasFixedSize(true);
+
+
     }
 
 

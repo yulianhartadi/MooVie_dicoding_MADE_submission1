@@ -4,74 +4,73 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
+
 import java.util.ArrayList;
 
-public class MovieAdapter extends BaseAdapter {
+public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ListViewHolder> {
 
-    private Context context;
-    private ArrayList<Movie> movies;
+    //private Context context;
+    private ArrayList<Movie> listMovies;
 
-    public void setMovies(ArrayList<Movie> movies) {
-        this.movies = movies;
+    public MovieAdapter(ArrayList<Movie> listMovies) {
+        this.listMovies = listMovies;
     }
 
-    public MovieAdapter(Context context) {
-        this.context = context;
-        movies = new ArrayList<>();
+
+    @NonNull
+    @Override
+    public MovieAdapter.ListViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_movie, parent, false);
+
+        return new ListViewHolder(view);
     }
 
     @Override
-    public int getCount() {
-        return movies.size();
+    public void onBindViewHolder(@NonNull MovieAdapter.ListViewHolder holder, int position) {
+        Movie movie = listMovies.get(position);
+
+        // movie poster
+        Glide.with(holder.itemView.getContext())
+                .load(movie.getPosterMovie())
+                .apply(new RequestOptions().override(100,160))
+                .into(holder.ivPosterMovie);
+
+        // text movie
+        holder.tvMovieTitle.setText(movie.getTitleMovie());
+        holder.tvPhMovie.setText(movie.getPhMovie());
+        holder.tvStoryline.setText(movie.getStorylineMovie());
+        holder.tvMovieRating.setText(movie.getMovieRating());
+
     }
 
     @Override
-    public Object getItem(int i) {
-        return movies.get(i);
+    public int getItemCount() {
+        return listMovies.size();
     }
 
-    @Override
-    public long getItemId(int i) {
-        return i;
-    }
+    public class ListViewHolder extends RecyclerView.ViewHolder {
 
-    @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
+        ImageView ivPosterMovie;
+        TextView tvMovieTitle, tvPhMovie, tvStoryline, tvMovieRating, tvMoreInfo;
 
-        if (view == null){
-            view = LayoutInflater.from(context).inflate(R.layout.item_movie, viewGroup, false);
-        }
+        public ListViewHolder(@NonNull View itemView) {
+            super(itemView);
 
-        // add view holder
-        ViewHolder viewHolder = new ViewHolder(view);
-        Movie movie = (Movie) getItem(i);
-        viewHolder.bind(movie);
+            ivPosterMovie = itemView.findViewById(R.id.iv_poster_movie);
+            tvMovieTitle = itemView.findViewById(R.id.tv_movie_title);
+            tvPhMovie = itemView.findViewById(R.id.tv_ph_movie);
+            tvStoryline = itemView.findViewById(R.id.tv_movie_storyline);
+            tvMovieRating = itemView.findViewById(R.id.tv_movie_rating);
+            tvMoreInfo = itemView.findViewById(R.id.tv_more_info);
 
-        return view;
-    }
-
-    private class ViewHolder{
-        private TextView tvTitleMovie, tvPhMovie, tvStorylineMovie, tvMovieRating;
-        private ImageView imgPosterMovie;
-
-        ViewHolder(View view){
-            tvTitleMovie = view.findViewById(R.id.tv_movie_title);
-            tvPhMovie = view.findViewById(R.id.tv_ph_movie);
-            tvStorylineMovie = view.findViewById(R.id.tv_movie_storyline);
-            tvMovieRating = view.findViewById(R.id.tv_movie_rating);
-            imgPosterMovie = view.findViewById(R.id.iv_poster_movie);
-        }
-
-        void bind(Movie movie){
-            tvTitleMovie.setText(movie.getTitleMovie());
-            tvPhMovie.setText(movie.getPhMovie());
-            tvStorylineMovie.setText(movie.getStorylineMovie());
-            tvMovieRating.setText(movie.getMovieRating());
-            imgPosterMovie.setImageResource(movie.getPosterMovie());
         }
     }
 }
