@@ -29,4 +29,8 @@
 
     <dimen name="abc_text_size_title_moovie">20sp</dimen>
 
+    <!-- thumbnail movie -->
+    <dimen name="cv_movie_title">16sp</dimen>
+    <dimen name="cv_movie_subtitle">13sp</dimen>
+
 </resources>

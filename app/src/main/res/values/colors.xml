@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#1a1a1a</color>
     <color name="colorPrimaryDark">#1a1a1a</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorAccent">#00ACC1</color>
 
     <!--Material color list from https://material.io/guidelines/style/color.html-->
     <color name="red_50">#FFEBEE</color>

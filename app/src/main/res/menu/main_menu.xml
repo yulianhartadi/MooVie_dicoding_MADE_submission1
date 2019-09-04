@@ -2,17 +2,30 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item
-        android:id="@+id/act_search"
-        android:icon="@drawable/ic_search"
-        android:orderInCategory="100"
-        android:title="@string/search"
-        app:showAsAction="ifRoom" />
 
     <item
-        android:icon="@drawable/ic_more_vert"
-        android:title="@string/settings"
-        android:orderInCategory="100"
-        app:showAsAction="never" />
+        android:id="@+id/search"
+        android:icon="@drawable/ic_search"
+        android:title="@string/search"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
+        app:showAsAction="ifRoom" />
+
+
+    <group android:menuCategory="container">
+
+        <item
+            android:id="@+id/choose_language"
+            android:icon="@drawable/ic_more_vert"
+            android:orderInCategory="100"
+            android:title="@string/choose_language"
+            app:showAsAction="collapseActionView" />
+
+        <item
+            android:id="@+id/settings"
+            android:orderInCategory="100"
+            android:title="@string/settings"
+            app:showAsAction="collapseActionView" />
+
+    </group>
 
 </menu>
